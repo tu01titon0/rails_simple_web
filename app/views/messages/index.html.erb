@@ -1,0 +1,7 @@
+<h1>index</h1>
+  <% @messages.each do |message| %>
+    <p><%= message.title %></p>
+    <p><%= message.content%></p>
+    <%= image_tag message.image %>
+    <p><%= message.athor%></p>
+  <% end %>
