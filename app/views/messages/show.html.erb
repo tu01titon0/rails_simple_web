@@ -1,0 +1,10 @@
+<div class ="container" >
+  <h1 align="center"> Create Messsage </h1>
+  <p><%= image_tag @message.image , class:"img_show"%>
+  <p  class="card-title"><%= @message.title %>
+  <p class="text-muted"><%= @message.user.name %>
+  <p><%= @message.content %>
+  <p><%= link_to 'Destroy', @message, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <%= link_to 'Edit', edit_message_path(@message) %>
+
+</div>

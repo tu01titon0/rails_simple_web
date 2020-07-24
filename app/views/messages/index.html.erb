@@ -1,7 +1,23 @@
-<h1>index</h1>
+<div class="container">
+  <h1 align="center">Message management</h1>
+
+  <%= link_to 'Create Message', new_message_path , class:"btn btn-outline-dark" %>
+  <p>
+
   <% @messages.each do |message| %>
-    <p><%= message.title %></p>
-    <p><%= message.content%></p>
-    <%= image_tag message.image %>
-    <p><%= message.athor%></p>
+    <div class="card pd-card">
+      <div class="row no-gutters">
+        <div class="col-auto">
+          <%= image_tag message.image , class:"img-fluid"%>
+        </div>
+        <div class="col">
+          <div class="card-block px-2">
+            <h4 class="card-title"><%= message.title %></h4>
+            <p class="card-text"><%= message.content %></p>
+            <p class="text-muted"><%= message.user.name %> <%= link_to 'Show', message %></p>
+          </div>
+        </div>
+      </div>
+    </div>
   <% end %>
+</div>
