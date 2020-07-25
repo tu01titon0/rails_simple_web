@@ -2,6 +2,15 @@
   <h1 align="center">Message management</h1>
 
   <%= link_to 'Create Message', new_message_path , class:"btn btn-outline-dark" %>
+
+  <div class="dropdown" style="display:inline-block;">
+  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Sort
+  <ul class="dropdown-menu">
+    <p> Sort by Newest
+  </ul>
+</div>
+
+
   <p>
 
   <% @messages.each do |message| %>
