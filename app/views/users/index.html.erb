@@ -1,6 +1,11 @@
 <div class="container">
   <h1 align="center"> User management </h1>
-    <%= link_to 'Create User', new_user_path , class:"btn btn-outline-dark" %>
+  <%= link_to 'Create User', new_user_path , class:"btn btn-outline-dark" %>
+  <p>
+  <%= form_tag(users_path, method: :get) do %>
+    <%= text_field_tag(:search, params[:search]) %>
+    <%= submit_tag "search" %>
+  <% end %>
     <p>
     <table class="table">
       <thead class="thead-dark">
