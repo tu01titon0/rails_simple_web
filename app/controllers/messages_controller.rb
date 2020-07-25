@@ -2,8 +2,14 @@ class MessagesController < ApplicationController
   before_action :set_message, only: [:show, :update, :destroy, :edit]
 
   def index
-    @messages = Message.all.includes(:user).page(params[:page]).per(3)
-    # @messages = Message.all.page(params[:page])
+    if params[:sort]
+      @messages = Message.all
+                         .order(created_at: params[:sort].to_sym)
+                         .page(params[:page])
+                         .per(3)
+    else
+      @messages = Message.all.includes(:user).page(params[:page]).per(3)
+    end
   end
 
   def show
