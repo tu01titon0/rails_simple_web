@@ -2,8 +2,8 @@ class MessagesController < ApplicationController
   before_action :set_message, only: [:show, :update, :destroy, :edit]
 
   def index
-    @messages = Message.all.includes(:user)
-    # @messages = Message.all
+    @messages = Message.all.includes(:user).page(params[:page]).per(3)
+    # @messages = Message.all.page(params[:page])
   end
 
   def show
@@ -11,6 +11,7 @@ class MessagesController < ApplicationController
   def new
     @message = Message.new
   end
+
 
   def create
     @message = Message.new(message_params)
