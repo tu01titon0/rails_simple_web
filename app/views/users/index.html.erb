@@ -1,5 +1,6 @@
 <div class="container">
   <h1 align="center"> User management </h1>
+  <%= link_to 'Message', messages_path ,class:"btn btn-outline-dark" %>
   <%= link_to 'Create User', new_user_path , class:"btn btn-outline-dark" %>
   <p>
   <%= form_tag(users_path, method: :get) do %>
